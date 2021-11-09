@@ -1,0 +1,107 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+
+	<!--		formControlName="name" => 	bind name au validation du formulaire => doit avoir même syntaxe que la variable côté ts-->
+	<div class="form-floating mb-3">
+		<input
+			type="text"
+			class="form-control"
+			id="name"
+			name="name"
+			placeholder="Saisissez le titre de votre nouvelle annonce"
+			formControlName="name"
+			[(ngModel)]="offer.name"
+		>
+		<label for="name">Titre de l'offre</label>
+
+		<app-errors-form
+			[control]="form.controls.name"
+			controlLabel="'Titre de l'annonce'"
+		>
+		</app-errors-form>
+
+	</div>
+
+	<div class="form-floating mb-3">
+		<input
+			type="text"
+			class="form-control"
+			id="description"
+			name="description"
+			placeholder="Saisissez la description de votre nouvelle annonce"
+			formControlName="description"
+			[(ngModel)]="offer.description"
+		>
+		<label for="name">Description de l'offre</label>
+
+		<app-errors-form
+			[control]="form.controls.description"
+			controlLabel="'Description de l'annonce'"
+		>
+		</app-errors-form>
+	</div>
+
+	<div class="form-floating mb-3">
+		<input
+			type="date"
+			class="form-control"
+			id="dateBegin"
+			name="dateBegin"
+			formControlName="dateBegin"
+			[(ngModel)]="offer.dateBegin"
+		>
+		<label for="name">Date de début de l'offre</label>
+		<app-errors-form
+			[control]="form.controls.dateBegin"
+			controlLabel="'Date de début de l'offre'"
+		>
+		</app-errors-form>
+	</div>
+
+	<div class="form-floating mb-3">
+		<input
+			type="date"
+			class="form-control"
+			id="dateEnd"
+			name="dateEnd"
+			formControlName="dateEnd"
+			[(ngModel)]="offer.dateEnd"
+		>
+		<label for="name">Date de fin de l'offre</label>
+
+		<app-errors-form
+			[control]="form.controls.dateEnd"
+			controlLabel="'Date de fin de l'offre'"
+		>
+		</app-errors-form>
+	</div>
+
+	<div class="form-floating mb-3">
+		<input
+			type="text"
+			class="form-control"
+			id="pictureUrl"
+			name="pictureUrl"
+			formControlName="pictureUrl"
+			[(ngModel)]="offer.pictureUrl"
+		>
+		<label for="name">Illustration de l'offre</label>
+
+		<app-errors-form
+			[control]="form.controls.pictureUrl"
+			controlLabel="'Illustration de l'offre'"
+		>
+		</app-errors-form>
+
+
+	</div>
+
+	<div class="row col-6 mx-auto">
+<!--		[disabled]="form.invalid"-->
+		<button
+			[disabled]="form.invalid"
+			type="submit"
+			class="btn btn-dark btn-lg btn-block">{{submitLabel}}</button>
+		<a routerLink="/offers" class="btn btn-outline-dark my-2">Retour</a>
+	</div>
+
+</form>
